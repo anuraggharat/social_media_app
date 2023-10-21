@@ -2,13 +2,13 @@
 import axios from 'axios'
 import Button from "@/app/components/Common/Button";
 import Input from "@/app/components/Input/Input";
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { SubmitHandler, FieldValues, useForm } from "react-hook-form";
 import AuthSocialButton from "./AuthSocialButton";
 import { BsGithub, BsGoogle , BsChatLeftQuote } from 'react-icons/bs';
 import { toast } from 'react-hot-toast';
-import { signIn } from 'next-auth/react';
-import { Router } from 'next/router';
+import { signIn, useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import { redirect } from 'next/dist/server/api-utils';
 
 
@@ -16,8 +16,10 @@ type Variant = 'LOGIN' | 'REGISTER';
 
 export default function AuthForm() {
 
+    const session = useSession()
     const [variant, setVariant] = useState<Variant>('LOGIN')
     const [isLoading,setIsLoading] = useState(false)
+    const router = useRouter()
 
     const toggleVariant = useCallback(()=>{
         if (variant==='LOGIN') {
@@ -48,6 +50,7 @@ export default function AuthForm() {
             }
             if (callback?.ok) {
               toast.success("Logged in")
+              router.push('/users')
             }
           })
           .finally(() => setIsLoading(false))
@@ -55,6 +58,7 @@ export default function AuthForm() {
         if (variant==='REGISTER') {
           axios.post('/api/register',data)
           .then(()=>toast.success("Account created"))
+          .then(()=>signIn('credentials',data))
           .catch(()=>toast.error("Something went wrong!"))
           .finally(()=>setIsLoading(false))
         }
@@ -75,6 +79,12 @@ export default function AuthForm() {
       })
       .finally(() => setIsLoading(false));
     }
+
+    useEffect(()=>{
+      if (session?.status === 'authenticated') {
+        router.push('/users')
+      }
+    },[session?.status,router])
 
   return (
     <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
