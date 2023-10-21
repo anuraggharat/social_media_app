@@ -1,5 +1,5 @@
 'use client'
-
+import axios from 'axios'
 import Button from "@/app/components/Common/Button";
 import Input from "@/app/components/Input/Input";
 import { useCallback, useState } from "react"
@@ -37,7 +37,7 @@ export default function AuthForm() {
             //login
         }
         if (variant==='REGISTER') {
-            //register
+          axios.post('/api/register',data)
         }
     }
 
