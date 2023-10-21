@@ -9,6 +9,7 @@ import { BsGithub, BsGoogle , BsChatLeftQuote } from 'react-icons/bs';
 import { toast } from 'react-hot-toast';
 import { signIn } from 'next-auth/react';
 import { Router } from 'next/router';
+import { redirect } from 'next/dist/server/api-utils';
 
 
 type Variant = 'LOGIN' | 'REGISTER';
@@ -61,6 +62,18 @@ export default function AuthForm() {
 
     const socialAction = (action:string)=>{
         setIsLoading(true)
+        signIn(action, { redirect: false })
+      .then((callback) => {
+        if (callback?.error) {
+          toast.error('Invalid credentials!');
+        }
+
+        if (callback?.ok) {
+          toast.success("Logging In")
+          //router.push('/conversations')
+        }
+      })
+      .finally(() => setIsLoading(false));
     }
 
   return (
