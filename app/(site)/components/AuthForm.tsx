@@ -5,7 +5,7 @@ import Input from "@/app/components/Input/Input";
 import { useCallback, useState } from "react"
 import { SubmitHandler, FieldValues, useForm } from "react-hook-form";
 import AuthSocialButton from "./AuthSocialButton";
-import { BsGithub, BsGoogle  } from 'react-icons/bs';
+import { BsGithub, BsGoogle , BsChatLeftQuote } from 'react-icons/bs';
 
 
 type Variant = 'LOGIN' | 'REGISTER';
@@ -47,7 +47,7 @@ export default function AuthForm() {
 
   return (
     <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">
+        <div className=" px-4 py-8 shadow sm:rounded-lg sm:px-10 bg-white border border-gray-200">
         <form 
           className="space-y-6" 
           onSubmit={handleSubmit(onSubmit)}
@@ -132,7 +132,7 @@ export default function AuthForm() {
           </div>
           <div 
             onClick={toggleVariant} 
-            className="underline cursor-pointer"
+            className="underline cursor-pointer text-violet-600"
           >
             {variant === 'LOGIN' ? 'Create an account' : 'Login'}
           </div>
