@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import AuthForm from './components/AuthForm'
 
 export default function Home() {
   return (
@@ -11,11 +12,11 @@ export default function Home() {
                 alt='Logo'
                 className='mx-auto w-auto'
             />
-            <h2 className='mt-6 text-center text-3xl font-bold tracking-tight text-gray-900'>
+            <h2 className='mt-6 text-center text-3xl font-medium tracking-tight text-gray-900'>
                 Sign in to your Account
             </h2>
         </div>
-        {/* Auth form goes here */}
+        <AuthForm />
     </main>
   )
 }
