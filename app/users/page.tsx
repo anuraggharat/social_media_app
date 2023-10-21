@@ -1,12 +1,11 @@
-'use client'
-import React from 'react'
-import Button from '../components/Common/Button'
-import { signOut } from 'next-auth/react'
+import EmptyState from "../components/common/EmptyState";
 
-export default function page() {
+const People = () => {
   return (
-    <div>
-        <button onClick={()=>signOut()} >Logout</button>
+    <div className="hidden lg:block lg:pl-80 h-full">
+      <EmptyState />
     </div>
-  )
+   );
 }
+ 
+export default People;
