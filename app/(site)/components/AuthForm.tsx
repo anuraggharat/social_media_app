@@ -6,6 +6,9 @@ import { useCallback, useState } from "react"
 import { SubmitHandler, FieldValues, useForm } from "react-hook-form";
 import AuthSocialButton from "./AuthSocialButton";
 import { BsGithub, BsGoogle , BsChatLeftQuote } from 'react-icons/bs';
+import { toast } from 'react-hot-toast';
+import { signIn } from 'next-auth/react';
+import { Router } from 'next/router';
 
 
 type Variant = 'LOGIN' | 'REGISTER';
@@ -33,11 +36,26 @@ export default function AuthForm() {
 
     const onSubmit:SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true)
-        if (variant==='LOGIN') {
-            //login
+        if (variant === 'LOGIN') {
+          signIn('credentials', {
+            ...data,
+            redirect: false
+          })
+          .then((callback) => {
+            if (callback?.error) {
+              toast.error('Invalid credentials!');
+            }
+            if (callback?.ok) {
+              toast.success("Logged in")
+            }
+          })
+          .finally(() => setIsLoading(false))
         }
         if (variant==='REGISTER') {
           axios.post('/api/register',data)
+          .then(()=>toast.success("Account created"))
+          .catch(()=>toast.error("Something went wrong!"))
+          .finally(()=>setIsLoading(false))
         }
     }
 
