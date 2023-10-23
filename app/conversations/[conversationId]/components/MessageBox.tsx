@@ -38,7 +38,6 @@ const MessageBox: React.FC<MessageBoxProps> = ({
     data.image ? 'rounded-md p-0' : 'rounded-full py-2 px-3'
   );
 
-  console.log(seenList);
   
   return ( 
     <div className={container}>
