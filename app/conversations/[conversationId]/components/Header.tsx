@@ -43,19 +43,7 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
       onClose={() => setDrawerOpen(false)}
     />
     <div 
-      className="
-        bg-white 
-        w-full 
-        flex 
-        border-b-[1px] 
-        sm:px-4 
-        py-3 
-        px-4 
-        lg:px-6 
-        justify-between 
-        items-center 
-        shadow-sm
-      "
+      className= "bg-white w-full flex border-b-[1px] dark:border-neutral-500 sm:px-4 py-3 px-4 lg:px-6 justify-between items-center shadow-sm dark:bg-neutral-950"
     >
       <div className="flex gap-3 items-center">
         <Link
@@ -63,8 +51,8 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
           className="
             lg:hidden 
             block 
-            text-sky-500 
-            hover:text-sky-600 
+            text-violet-600 
+            hover:text-violet-700 
             transition 
             cursor-pointer
           "
@@ -76,9 +64,9 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
         ) : (
           <Avatar user={otherUser} />
         )}
-        <div className="flex flex-col">
+        <div className="flex flex-col dark:text-neutral-200 text-white">
           <div>{conversation.name || otherUser.name}</div>
-          <div className="text-sm font-light text-neutral-500">
+          <div className="text-sm font-light text-neutral-500 dark:text-neutral-300">
             {statusText}
           </div>
         </div>
@@ -87,9 +75,9 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
         size={32}
         onClick={() => setDrawerOpen(true)}
         className="
-          text-sky-500
+          text-violet-500
           cursor-pointer
-          hover:text-sky-600
+          hover:text-violet-600
           transition
         "
       />

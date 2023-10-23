@@ -46,25 +46,13 @@ const Form = () => {
   }
 
   return ( 
-    <div 
-      className="
-        py-4 
-        px-4 
-        bg-white 
-        border-t 
-        flex 
-        items-center 
-        gap-2 
-        lg:gap-4 
-        w-full
-      "
-    >
+    <div className=" py-6 px-4 bg-white border-t flex items-center gap-2 lg:gap-4 w-full dark:bg-neutral-950 dark:border-neutral-500 " >
       <CldUploadButton 
         options={{ maxFiles: 1 }} 
         onUpload={handleUpload} 
         uploadPreset="aruwqs7z"
       >
-        <HiPhoto size={30} className="text-sky-500" />
+        <HiPhoto size={30} className="text-violet-500" />
       </CldUploadButton>
       <form 
         onSubmit={handleSubmit(onSubmit)} 
