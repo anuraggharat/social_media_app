@@ -5,13 +5,13 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/navigation';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { User } from '@prisma/client';
-import { CldUploadButton } from 'next-cloudinary';
-
+import { CldUploadButton } from 'next-cloudinary'
 
 import Image from 'next/image';
 import { toast } from 'react-hot-toast';
 import Input from '../input/Input';
 import Button from '../common/Button';
+import Modal from '../modals/Modal';
 
 interface SettingsModalProps {
   isOpen?: boolean;
@@ -116,7 +116,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                   <CldUploadButton 
                     options={{ maxFiles: 1 }} 
                     onUpload={handleUpload} 
-                    uploadPreset="pgc9ehd5"
+                    uploadPreset="aruwqs7z"
                   >
                     <Button
                       disabled={isLoading}

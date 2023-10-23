@@ -5,8 +5,8 @@ import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 import {  User } from "@prisma/client";
 
-//import LoadingModal from "@/app/components/modals/LoadingModal";
 import Avatar from "@/app/components/common/Avatar";
+import LoadingModal from "@/app/components/modals/LoadingModal";
 
 interface UserBoxProps {
   data: User
@@ -30,9 +30,9 @@ const UserBox: React.FC<UserBoxProps> = ({
 
   return (
     <>
-      {/* {isLoading && (
+      {isLoading && (
         <LoadingModal />
-      )} */}
+      )}
       <div
         onClick={handleClick}
         className="
