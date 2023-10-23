@@ -9,8 +9,6 @@ import { BsGithub, BsGoogle , BsChatLeftQuote } from 'react-icons/bs';
 import { toast } from 'react-hot-toast';
 import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { redirect } from 'next/dist/server/api-utils';
-
 
 type Variant = 'LOGIN' | 'REGISTER';
 
@@ -87,8 +85,9 @@ export default function AuthForm() {
     },[session?.status,router])
 
   return (
-    <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className=" px-4 py-8 shadow sm:rounded-lg sm:px-10 bg-white border border-gray-200">
+    <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md rounded">
+        <div className=" px-4 py-8 shadow sm:rounded-lg sm:px-10 bg-white border 
+        border-gray-200 dark:bg-neutral-900 dark:border-neutral-900">
         <form 
           className="space-y-6" 
           onSubmit={handleSubmit(onSubmit)}
@@ -137,10 +136,9 @@ export default function AuthForm() {
                 items-center
               "
             >
-              <div className="w-full border-t border-gray-300" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="bg-white px-2 text-gray-500">
+              <span className="px-2 text-neutral-700 dark:text-neutral-400">
                 Or continue with
               </span>
             </div>
@@ -165,7 +163,8 @@ export default function AuthForm() {
             text-sm 
             mt-6 
             px-2 
-            text-gray-500
+            text-gray-700
+            dark:text-gray-400
           "
         >
           <div>

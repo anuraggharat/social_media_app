@@ -30,7 +30,7 @@ const Input:React.FC<InputProps> = ({errors,id,label,register,disabled,required,
         font-medium 
         leading-6 
         text-gray-800
-        dark:text-gray-100
+        dark:text-gray-200
       "
     >
       {label}
@@ -42,8 +42,9 @@ const Input:React.FC<InputProps> = ({errors,id,label,register,disabled,required,
         autoComplete={id}
         disabled={disabled}
         {...register(id, { required })}
-        className={clsx(`block w-full rounded-md border-0 py-2 px-2 text-gray-900 dark:bg-gray-950 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`,
-        errors[id] && 'focus:ring-rose-',
+        className={clsx(`block w-full rounded-md border-0 py-3 px-3 text-gray-700 shadow-sm placeholder:text-gray-700
+        focus:ring-violet-600 sm:text-sm sm:leading-6 dark:bg-neutral-950 dark:border-neutral-700 dark:text-gray-300 dark:placeholder:text-gray-300`,
+        errors[id] && 'focus:ring-rose-500',
         disabled && 'opacity-50 cursor-default'
         )}
       />
