@@ -64,7 +64,7 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
         ) : (
           <Avatar user={otherUser} />
         )}
-        <div className="flex flex-col dark:text-neutral-200 text-white">
+        <div className="flex flex-col dark:text-neutral-200">
           <div>{conversation.name || otherUser.name}</div>
           <div className="text-sm font-light text-neutral-500 dark:text-neutral-300">
             {statusText}
