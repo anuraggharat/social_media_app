@@ -66,19 +66,12 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="space-y-12">
+        <div className="space-y-12 ">
           <div className="border-b border-gray-900/10 pb-12">
-            <h2 
-              className="
-                text-base 
-                font-semibold 
-                leading-7 
-                text-gray-900
-              "
-            >
+            <h2 className=" text-base font-semibold leading-7 text-gray-900 dark:text-neutral-200" >
               Profile
             </h2>
-            <p className="mt-1 text-sm leading-6 text-gray-600">
+            <p className="mt-1 text-sm leading-6 text-gray-600 dark:text-neutral-400">
               Edit your public information.
             </p>
 
@@ -99,7 +92,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                     text-sm 
                     font-medium 
                     leading-6 
-                    text-gray-900
+                    text-gray-900 dark:text-neutral-200
                   "
                 >
                   Photo
@@ -119,7 +112,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                   >
                     <Button
                       disabled={isLoading}
-                      secondary
+                      
                       type="button"
                     >
                       Change
