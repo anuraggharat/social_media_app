@@ -1,7 +1,7 @@
 'use client'
 import axios from 'axios'
-import Button from "@/app/components/common/Button";
-import Input from "@/app/components/input/Input";
+import Button from "../../components/common/Button";
+import Input from "../../components/input/Input";
 import { useCallback, useEffect, useState } from "react"
 import { SubmitHandler, FieldValues, useForm } from "react-hook-form";
 import AuthSocialButton from "./AuthSocialButton";
