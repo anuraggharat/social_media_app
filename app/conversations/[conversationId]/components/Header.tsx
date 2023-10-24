@@ -11,7 +11,7 @@ import useActiveList from "@/app/hooks/useActiveList";
 
 import Avatar from "@/app/components/common/Avatar";
 import AvatarGroup from "@/app/components/common/AvatarGroup";
-import ProfileDrawer from "./ProfileDrawser";
+import ProfileDrawer from "./ProfileDrawer";
 
 interface HeaderProps {
   conversation: Conversation & {
